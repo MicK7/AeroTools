@@ -1,0 +1,746 @@
+<ServerManagerConfiguration>
+<!-- This is the server manager configuration XML. It defines the interface to
+our new filter. As a rule of thumb, try to locate the configuration for
+a filter already in ParaView (in Servers/ServerManager/Resources/*.xml)
+that matches your filter and then model your xml on it -->
+    <ProxyGroup name="filters">
+        <SourceProxy name="ComputeVariables" class="vtkComputeVariables" label="ComputeVariables">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+
+            <DoubleVectorProperty
+                name="Gamma"
+                label="Gamma"
+                command="SetGamma"
+                number_of_elements="1"
+                default_values="1.303">
+            </DoubleVectorProperty>
+            <DoubleVectorProperty
+                name="Cv"
+                label="Cv"
+                command="SetCv"
+                number_of_elements="1"
+                default_values="947.2046">
+            </DoubleVectorProperty>
+
+			<StringVectorProperty name="RhoName"
+                                    command="SetRhoName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="RhoName">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Scalars">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+            
+            <StringVectorProperty name="RhovName"
+                                    command="SetRhovName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="RhovName">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Vectors">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+            
+            <StringVectorProperty name="RhoeName"
+                                    command="SetRhoeName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="RhoeName">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Scalars">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+
+        </SourceProxy>
+        
+        <SourceProxy name="CylindricalCoordinates" class="vtkCylindricalCoordinates" label="CylindricalCoordinates">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+
+        </SourceProxy>
+        
+        <SourceProxy name="CylindricalCoordinatesVector" class="vtkCylindricalCoordinatesVector" label="CylindricalCoordinatesVector">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+			
+			<StringVectorProperty name="Name"
+                                    command="SetName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="Name">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Vectors">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+            
+        </SourceProxy>
+        
+        <SourceProxy name="CylindricalProjection" class="vtkCylindricalProjection" label="CylindricalProjection">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+			
+			
+			<DoubleVectorProperty
+                name="Rref"
+                label="Rref"
+                command="SetRref"
+                number_of_elements="1"
+                default_values="0.089">
+            </DoubleVectorProperty>
+            
+        </SourceProxy>
+        
+        <SourceProxy name="RotatingFrame" class="vtkRotatingFrame" label="RotatingFrame">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+			
+			
+			<DoubleVectorProperty
+                name="Omega"
+                label="Omega"
+                command="SetOmega"
+                number_of_elements="1"
+                default_values="5518.312216">
+            </DoubleVectorProperty>
+            <IntVectorProperty name="RelativeToAbsolute"
+                     command="SetRelativeToAbsolute"
+                     number_of_elements="1"
+                     default_values="1">
+			<BooleanDomain name="bool"/>
+			</IntVectorProperty>
+			
+			
+			<StringVectorProperty name="Postfix"
+                        command="SetPostfix"
+                        number_of_elements="1"
+                        default_values="">
+			</StringVectorProperty>
+
+
+			
+			<DoubleVectorProperty
+                name="Gamma"
+                label="Gamma"
+                command="SetGamma"
+                number_of_elements="1"
+                default_values="1.303">
+            </DoubleVectorProperty>
+            <DoubleVectorProperty
+                name="Cv"
+                label="Cv"
+                command="SetCv"
+                number_of_elements="1"
+                default_values="947.2046">
+            </DoubleVectorProperty>
+            
+        </SourceProxy>
+        
+        <SourceProxy name="Duplication" class="vtkDuplication" label="Duplication">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+			
+			
+			<DoubleVectorProperty
+                name="Nblades"
+                label="Nblades"
+                command="SetNblades"
+                number_of_elements="1"
+                default_values="1.0">
+            </DoubleVectorProperty>
+            
+            <IntVectorProperty name="Imin"
+                     command="SetImin"
+                     number_of_elements="1"
+                     default_values="0">
+			</IntVectorProperty>
+			<IntVectorProperty name="Imax"
+                     command="SetImax"
+                     number_of_elements="1"
+                     default_values="0">
+			</IntVectorProperty>
+        </SourceProxy>
+        
+        <SourceProxy name="MakeVector" class="vtkMakeVector" label="MakeVector">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+
+			<StringVectorProperty name="XComponentName"
+                                    command="SetXComponentName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="XComponentName">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Scalars">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+            
+            <StringVectorProperty name="YComponentName"
+                                    command="SetYComponentName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="YComponentName">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Scalars">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+            
+            <StringVectorProperty name="ZComponentName"
+                                    command="SetZComponentName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="ZComponentName">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Scalars">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+            
+            <StringVectorProperty name="VectorName"
+                        command="SetVectorName"
+                        number_of_elements="1"
+                        default_values="Vector">
+			</StringVectorProperty>
+        </SourceProxy>
+    
+    <SourceProxy name="CellLocatorIntepolator" class="vtkCellLocatorInterpolator" label="CellLocatorInterpolator">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Geometrie"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+            
+            <InputProperty
+            name="Data"
+            port_index="1"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+        </SourceProxy>
+        
+
+    
+     <SourceProxy name="ConeSlice" class="vtkConeSlice" label="ConeSlice">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+            
+            <DoubleVectorProperty
+                name="Xr1"
+                label="Xr1"
+                command="SetXr1"
+                number_of_elements="2"
+                default_values="0.0 0.0">
+            </DoubleVectorProperty>
+            <DoubleVectorProperty
+                name="Xr2"
+                label="Xr2"
+                command="SetXr2"
+                number_of_elements="2"
+                default_values="0.0 1.0">
+            </DoubleVectorProperty>
+            
+        </SourceProxy>
+        
+        <SourceProxy name="ComputeVariables2" class="vtkComputeVariables2" label="ComputeVariables2">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+
+            <DoubleVectorProperty
+                name="Gamma"
+                label="Gamma"
+                command="SetGamma"
+                number_of_elements="1"
+                default_values="1.303">
+            </DoubleVectorProperty>
+            <DoubleVectorProperty
+                name="Cv"
+                label="Cv"
+                command="SetCv"
+                number_of_elements="1"
+                default_values="947.2046">
+            </DoubleVectorProperty>
+
+			<StringVectorProperty name="RhoName"
+                                    command="SetRhoName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="RhoName">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Scalars">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+            
+            <StringVectorProperty name="RhovName"
+                                    command="SetRhovName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="RhovName">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Vectors">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+            
+            <StringVectorProperty name="RhoeName"
+                                    command="SetRhoeName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="RhoeName">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Scalars">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+
+            <StringVectorProperty name="RhokName"
+                                    command="SetRhokName"
+                                    number_of_elements="5"
+                                    element_types="0 0 0 0 2"
+                                    label="RhokName">
+                <ArrayListDomain name="array_list"
+                    attribute_type="Scalars">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </ArrayListDomain>
+                <FieldDataDomain name="field_list">
+                      <RequiredProperties>
+                            <Property name="Input" function="Input" />
+                      </RequiredProperties>
+                </FieldDataDomain>
+                <Documentation>
+                  blabla
+                </Documentation>
+            </StringVectorProperty>
+            
+        </SourceProxy>
+        
+        <SourceProxy name="RotatingFrame2" class="vtkRotatingFrame2" label="RotatingFrame2">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+			
+			
+			<DoubleVectorProperty
+                name="Omega"
+                label="Omega"
+                command="SetOmega"
+                number_of_elements="1"
+                default_values="5518.312216">
+            </DoubleVectorProperty>
+            <IntVectorProperty name="RelativeToAbsolute"
+                     command="SetRelativeToAbsolute"
+                     number_of_elements="1"
+                     default_values="1">
+			<BooleanDomain name="bool"/>
+			</IntVectorProperty>
+			
+			
+			<StringVectorProperty name="Postfix"
+                        command="SetPostfix"
+                        number_of_elements="1"
+                        default_values="">
+			</StringVectorProperty>
+
+
+			
+			<DoubleVectorProperty
+                name="Gamma"
+                label="Gamma"
+                command="SetGamma"
+                number_of_elements="1"
+                default_values="1.303">
+            </DoubleVectorProperty>
+            <DoubleVectorProperty
+                name="Cv"
+                label="Cv"
+                command="SetCv"
+                number_of_elements="1"
+                default_values="947.2046">
+            </DoubleVectorProperty>
+            
+        </SourceProxy>
+        
+        <SourceProxy name="CylindricalProjection2" class="vtkCylindricalProjection2" label="CylindricalProjection2">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPolyData"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+			
+			
+			<DoubleVectorProperty
+                name="RRef"
+                label="RRef"
+                command="SetRRef"
+                number_of_elements="1"
+                default_values="0.089">
+            </DoubleVectorProperty>
+            <DoubleVectorProperty
+                name="ThetaRef"
+                label="ThetaRef"
+                command="SetThetaRef"
+                number_of_elements="1"
+                default_values="0.0">
+            </DoubleVectorProperty>
+            
+        </SourceProxy>
+        
+        <SourceProxy name="CylindricalCoordinates2" class="vtkCylindricalCoordinates2" label="CylindricalCoordinates2">
+            <Documentation
+            long_help="Compute some variables"
+            short_help="Compute some variables">
+            Compute some variables
+            </Documentation>
+
+            <InputProperty
+            name="Input"
+            port_index="0"
+            command="SetInputConnection">
+
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPointSet"/>
+                </DataTypeDomain>
+
+            </InputProperty>
+            <DoubleVectorProperty
+                name="ThetaRef"
+                label="ThetaRef"
+                command="SetThetaRef"
+                number_of_elements="1"
+                default_values="0.0">
+            </DoubleVectorProperty>
+        </SourceProxy>
+     
+     </ProxyGroup>   
+</ServerManagerConfiguration>
+

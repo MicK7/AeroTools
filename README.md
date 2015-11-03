@@ -1,0 +1,1 @@
+# AeroToolsCollection of filters useful for post-processing RANS computation- Cone slicing- Sector duplication- Computing aerodynamic variables from conservative values- Changing frame (absolute/relative formulation)- Generate vector from scalars- Surface interpolation... a bit messy ... but it works
